@@ -1,16 +1,10 @@
-# food_fogre
+Список участников:
+Литвинов Кирилл
+Назаров Михаил 
+Файздрахманов Влад
 
-A new Flutter project.
+Контакты:
+Telegram: @pissme0ff, @reqium, @vlad_fay 
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Основная информация о проекте:
+FoodForge — это мобильное приложение для удобного поиска кулинарных рецептов с помощью точных фильтров и персонализированных настроек. Наш сервис помогает пользователям быстро находить блюда по имеющимся ингредиентам, диетическим предпочтениям и времени приготовления, исключая необходимость в случайном подборе. Ключевые возможности включают интеллектуальный поиск, создание списков покупок и сохранение любимых рецептов. Приложение предназначено для занятых людей, родителей, студентов и приверженцев здорового питания, которые ценят простоту и практичность в готовке. FoodForge отличается продуманным интерфейсом и функционалом, ориентированным на повседневные потребности пользователей.
