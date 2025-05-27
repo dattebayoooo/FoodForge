@@ -4,12 +4,16 @@ import 'package:google_fonts/google_fonts.dart';
 
 class ProductSection extends StatelessWidget {
   final List<String> products;
+  final Function(int) onRemove;
 
-  const ProductSection({super.key, required this.products});
+  const ProductSection({
+    super.key,
+    required this.products,
+    required this.onRemove,
+  });
 
   @override
   Widget build(BuildContext context) {
-    // Разделяем список на группы по 3 элемента для создания строк
     List<List<String>> rows = [];
     for (int i = 0; i < products.length; i += 3) {
       int end = (i + 3 < products.length) ? i + 3 : products.length;
@@ -26,48 +30,50 @@ class ProductSection extends StatelessWidget {
             color: AppColor.brown,
           ),
         ),
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
         Column(
-          children:
-              rows.map((row) {
-                return Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 4),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children:
-                        row.map((product) {
-                          return Container(
-                            decoration: BoxDecoration(
-                              color: AppColor.pink,
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(32),
-                              ),
+          children: rows.map((row) {
+            return Padding(
+              padding: const EdgeInsets.symmetric(vertical: 4),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: row.asMap().entries.map((entry) {
+                  final index = products.indexOf(entry.value);
+                  return GestureDetector(
+                    onTap: () => onRemove(index),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: AppColor.pink,
+                        borderRadius: BorderRadius.circular(32),
+                      ),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 5,
+                        vertical: 1,
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(
+                            entry.value,
+                            style: GoogleFonts.montserratAlternates(
+                              color: AppColor.intensepink,
+                              fontSize: 16,
                             ),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                const SizedBox(width: 8),
-                                Text(
-                                  product,
-                                  style: GoogleFonts.montserratAlternates(
-                                    color: AppColor.intensepink,
-                                    fontSize: 16,
-                                  ),
-                                ),
-
-                                Icon(
-                                  AppIcons.cross,
-                                  size: 20,
-                                  color: AppColor.brown,
-                                ),
-                                const SizedBox(width: 4),
-                              ],
-                            ),
-                          );
-                        }).toList(),
-                  ),
-                );
-              }).toList(),
+                          ),
+                          const SizedBox(width: 4),
+                          Icon(
+                            AppIcons.cross,
+                            size: 20,
+                            color: AppColor.brown,
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                }).toList(),
+              ),
+            );
+          }).toList(),
         ),
       ],
     );

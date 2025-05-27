@@ -4,8 +4,15 @@ import 'package:google_fonts/google_fonts.dart';
 
 class SearchFields extends StatelessWidget {
   final String placeholder;
+  final TextEditingController? controller;
+  final Function(String)? onSubmitted;
 
-  const SearchFields({super.key, required this.placeholder});
+  const SearchFields({
+    super.key,
+    required this.placeholder,
+    this.controller,
+    this.onSubmitted,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -13,22 +20,23 @@ class SearchFields extends StatelessWidget {
       children: [
         Expanded(
           child: Container(
-            height: 40,
+            height: 48,
             decoration: BoxDecoration(
               color: AppColor.pink,
-              borderRadius: BorderRadius.all(Radius.circular(32)),
+              borderRadius: BorderRadius.circular(32),
             ),
-            child: Row(
-              children: [
-                const SizedBox(width: 24),
-                Text(
-                  placeholder,
-                  style: GoogleFonts.montserratAlternates(
-                    color: AppColor.intensepink,
-                    fontSize: 16,
-                  ),
+            child: TextField(
+              controller: controller,
+              onSubmitted: onSubmitted,
+              decoration: InputDecoration(
+                hintText: placeholder,
+                hintStyle: GoogleFonts.montserratAlternates(
+                  color: AppColor.intensepink,
+                  fontSize: 16,
                 ),
-              ],
+                border: InputBorder.none,
+                contentPadding: const EdgeInsets.symmetric(horizontal: 24),
+              ),
             ),
           ),
         ),

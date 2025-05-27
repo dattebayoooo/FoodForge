@@ -13,17 +13,17 @@ class CustomBottomBar extends StatelessWidget {
     required this.selectedIndex,
     required this.onTabSelected,
     this.activeColor = const Color(0xffbe464f),
-    this.inactiveColor = Colors.transparent, // Изменили на прозрачный
+    this.inactiveColor = Colors.transparent,
     this.iconColor = Colors.white,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 60, // Единая высота
+      height: 60,
       margin: const EdgeInsets.symmetric(horizontal: 16),
       decoration: BoxDecoration(
-        color: AppColor.intensepink, // Полупрозрачный белый
+        color: AppColor.intensepink,
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(

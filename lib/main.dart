@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:food_forge/home_page.dart';
+import 'package:food_forge/pages/home_page.dart';
+import 'package:food_forge/pages/favorites_page.dart';
+import 'package:food_forge/pages/search_page.dart';
+import 'package:food_forge/pages/settings_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -8,30 +11,63 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Food Forge',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a purple toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        primarySwatch: Colors.blue,
       ),
-      home: HomePage(),
+      home: const MainNavigator(),
+      debugShowCheckedModeBanner: false,
     );
+  }
+}
+
+class MainNavigator extends StatefulWidget {
+  const MainNavigator({super.key});
+
+  @override
+  State<MainNavigator> createState() => _MainNavigatorState();
+}
+
+class _MainNavigatorState extends State<MainNavigator> {
+  int _currentIndex = 0;
+
+  void _changePage(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    switch (_currentIndex) {
+      case 0:
+        return HomePage(
+          currentIndex: _currentIndex,
+          onTabSelected: _changePage,
+        );
+      case 1:
+        return FavoritesPage(
+          currentIndex: _currentIndex,
+          onTabSelected: _changePage,
+        );
+      case 2:
+        return SearchPage(
+          currentIndex: _currentIndex,
+          onTabSelected: _changePage,
+        );
+      case 3:
+        return SettingsPage(
+          currentIndex: _currentIndex,
+          onTabSelected: _changePage,
+        );
+      default:
+        return HomePage(
+          currentIndex: 0,
+          onTabSelected: _changePage,
+        );
+    }
   }
 }
