@@ -5,11 +5,3 @@ class AppColor {
   static const Color pink = Color(0xFFFFC6C9);
   static const Color brown = Color(0xFF32201C);
 }
-
-class AppImages {
-  static const String cook = "assets/images/cook.png";
-}
-
-class AppIcons {
-  static const IconData cross = Icons.close_rounded;
-}

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_forge/assents.dart';
+import 'package:food_forge/assets/app_colors.dart';
 import 'package:food_forge/widgets/custom_bottom_bar.dart';
 import 'package:food_forge/widgets/gradient_background.dart';
 import 'package:food_forge/widgets/product_section.dart';
@@ -95,7 +95,6 @@ class _SearchPageState extends State<SearchPage> {
                   ),
                   const SizedBox(height: 32),
                   Container(
-                    
                     padding: const EdgeInsets.all(24),
                     decoration: BoxDecoration(
                       color: Colors.white,
@@ -103,8 +102,6 @@ class _SearchPageState extends State<SearchPage> {
                     ),
                     child: Column(
                       children: [
-                        
-
                         // Поле поиска
                         SearchFields(
                           placeholder: "Укажите продукты или название блюда",

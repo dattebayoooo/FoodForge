@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_forge/assents.dart';
+import 'package:food_forge/assets/app_colors.dart';
 import 'package:food_forge/widgets/custom_bottom_bar.dart';
 import 'package:food_forge/widgets/product_section.dart';
 import 'package:food_forge/widgets/search_fields.dart';
@@ -23,8 +23,15 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   bool _isPressed = false;
   final List<String> products = [
-    'Хлеб', 'Молоко', 'Бананы', 'Майонез', 'Колбаса',
-    'Яйцо', 'Курица', 'Сметана', 'Йогурт',
+    'Хлеб',
+    'Молоко',
+    'Бананы',
+    'Майонез',
+    'Колбаса',
+    'Яйцо',
+    'Курица',
+    'Сметана',
+    'Йогурт',
   ];
   final TextEditingController _productController = TextEditingController();
 
@@ -112,14 +119,17 @@ class _HomePageState extends State<HomePage> {
                         },
                         child: AnimatedContainer(
                           duration: const Duration(milliseconds: 100),
-                          transform: Matrix4.identity()
-                            ..scale(_isPressed ? 0.95 : 1.0),
+                          transform:
+                              Matrix4.identity()
+                                ..scale(_isPressed ? 0.95 : 1.0),
                           decoration: BoxDecoration(
                             color: AppColor.brown,
                             borderRadius: BorderRadius.circular(32),
                           ),
                           padding: const EdgeInsets.symmetric(
-                              horizontal: 12, vertical: 4),
+                            horizontal: 12,
+                            vertical: 4,
+                          ),
                           child: Text(
                             "Сгенерировать",
                             style: GoogleFonts.alumniSans(
@@ -138,7 +148,6 @@ class _HomePageState extends State<HomePage> {
           ),
 
           // Изображение повара
-          
 
           // BottomBar
           Positioned(

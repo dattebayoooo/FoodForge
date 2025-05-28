@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:food_forge/assents.dart';
+
+import 'package:food_forge/assets/app_colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SearchFields extends StatelessWidget {
