@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:food_forge/assents.dart';
-import 'package:food_forge/home_page/custom_bottom_bar.dart';
-import 'package:food_forge/home_page/product_section.dart';
-import 'package:food_forge/home_page/search_fields.dart';
+import 'package:food_forge/widgets/custom_bottom_bar.dart';
+import 'package:food_forge/widgets/product_section.dart';
+import 'package:food_forge/widgets/search_fields.dart';
+import 'package:food_forge/widgets/gradient_background.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomePage extends StatefulWidget {
@@ -54,14 +55,13 @@ class _HomePageState extends State<HomePage> {
       body: Stack(
         children: [
           // Градиентный фон
-          Container(
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                colors: [AppColor.intensepink, AppColor.pink],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-              ),
-            ),
+          GradientBackground(),
+
+          Positioned(
+            bottom: 0,
+            left: 0,
+            right: 0,
+            child: Image.asset("assets/images/cook.png", fit: BoxFit.fitWidth),
           ),
 
           // Основной контент
@@ -138,12 +138,7 @@ class _HomePageState extends State<HomePage> {
           ),
 
           // Изображение повара
-          Positioned(
-            bottom: 0,
-            left: 0,
-            right: 0,
-            child: Image.asset("assets/images/cook.png", fit: BoxFit.fitWidth),
-          ),
+          
 
           // BottomBar
           Positioned(

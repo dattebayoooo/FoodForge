@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-
-import 'package:food_forge/assents.dart';
-import 'package:food_forge/home_page/custom_bottom_bar.dart';
+import 'package:food_forge/widgets/custom_bottom_bar.dart';
+import 'package:food_forge/widgets/gradient_background.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SettingsPage extends StatelessWidget {
@@ -20,15 +19,7 @@ class SettingsPage extends StatelessWidget {
       body: Stack(
         children: [
           // Градиентный фон
-          Container(
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                colors: [AppColor.intensepink, AppColor.pink],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-              ),
-            ),
-          ),
+          GradientBackground(),
 
           // Контент
           Center(

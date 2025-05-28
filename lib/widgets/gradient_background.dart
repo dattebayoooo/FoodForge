@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:food_forge/assents.dart';
 
 class GradientBackground extends StatelessWidget {
-  final Widget child;
+  
 
   const GradientBackground({
     super.key,
-    required this.child,
   });
 
   @override
@@ -19,7 +18,6 @@ class GradientBackground extends StatelessWidget {
           end: Alignment.bottomRight,
         ),
       ),
-      child: child,
     );
   }
 }

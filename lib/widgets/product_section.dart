@@ -43,7 +43,7 @@ class ProductSection extends StatelessWidget {
                     onTap: () => onRemove(index),
                     child: Container(
                       decoration: BoxDecoration(
-                        color: AppColor.pink,
+                        color: AppColor.intensepink,
                         borderRadius: BorderRadius.circular(32),
                       ),
                       padding: const EdgeInsets.symmetric(
@@ -56,7 +56,7 @@ class ProductSection extends StatelessWidget {
                           Text(
                             entry.value,
                             style: GoogleFonts.montserratAlternates(
-                              color: AppColor.intensepink,
+                              color: Colors.black,
                               fontSize: 16,
                             ),
                           ),
