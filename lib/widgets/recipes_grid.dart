@@ -47,7 +47,7 @@ class RecipesGrid extends StatelessWidget {
         crossAxisCount: 2,
         crossAxisSpacing: 16,
         mainAxisSpacing: 16,
-        childAspectRatio: 0.75,
+        childAspectRatio: 0.81,
       ),
       itemCount: recipes.length,
       itemBuilder: (context, index) => RecipeCard(

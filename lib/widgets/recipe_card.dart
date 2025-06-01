@@ -20,7 +20,7 @@ class RecipeCard extends StatelessWidget {
       onTap: onTap,
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: AppColor.mediumpink,
           borderRadius: BorderRadius.circular(16),
           boxShadow: [
             BoxShadow(
@@ -30,60 +30,83 @@ class RecipeCard extends StatelessWidget {
             ),
           ],
         ),
-        child: Stack(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                ClipRRect(
-                  borderRadius: const BorderRadius.vertical(
-                    top: Radius.circular(16)),
-                  child: Image.asset(
-                    recipe.imageUrl,
-                    height: 120,
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(12),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        recipe.name,
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: const TextStyle(
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      const SizedBox(height: 8),
-                      Row(
-                        children: [
-                          const Icon(Icons.timer_outlined, size: 16),
-                          const SizedBox(width: 4),
-                          Text(recipe.cookingTime),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-            if (onFavoritePressed != null)
-              Positioned(
-                top: 8,
-                right: 8,
-                child: IconButton(
-                  icon: Icon(
-                    recipe.isFavorite 
-                        ? Icons.favorite 
-                        : Icons.favorite_border,
-                    color: AppColor.intensepink,
-                  ),
-                  onPressed: onFavoritePressed,
+            // Изображение рецепта
+            ClipRRect(
+              borderRadius: const BorderRadius.vertical(
+                top: Radius.circular(16)),
+              child: Image.asset(
+                recipe.imageUrl,
+                height: 120,
+                fit: BoxFit.cover,
+                errorBuilder: (_, __, ___) => Container(
+                  color: Colors.grey[200],
+                  height: 120,
+                  child: const Icon(Icons.fastfood),
                 ),
               ),
+            ),
+            // Нижняя часть карточки
+            Padding(
+              padding: const EdgeInsets.all(12),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // Название рецепта
+                  Text(
+                    recipe.name,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                      color: Colors.white,
+                    ),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  const SizedBox(height: 8),
+                  // Строка с временем и кнопкой избранного
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      // Время приготовления
+                      Row(
+                        children: [
+                          const Icon(
+                            Icons.access_time,
+                            size: 18,
+                            color: Colors.white,
+                          ),
+                          const SizedBox(width: 4),
+                          Text(
+                            recipe.cookingTime,
+                            style: const TextStyle(
+                              fontSize: 14,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ],
+                      ),
+                      // Кнопка избранного
+                      if (onFavoritePressed != null)
+                        IconButton(
+                          icon: Icon(
+                            recipe.isFavorite 
+                                ? Icons.favorite 
+                                : Icons.favorite_border,
+                            color: Colors.white,
+                            size: 24,
+                          ),
+                          onPressed: onFavoritePressed,
+                          padding: EdgeInsets.zero,
+                          constraints: const BoxConstraints(),
+                        ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),

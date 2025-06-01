@@ -73,7 +73,7 @@ class _SearchPageState extends State<SearchPage> {
     return widget.allRecipes.where((recipe) {
       return _selectedProducts.every((product) => 
         recipe.ingredients.any((ing) => 
-          ing.toLowerCase().contains(product.toLowerCase())));
+          ing.name.toLowerCase().contains(product.toLowerCase())));
     }).toList();
   }
 
