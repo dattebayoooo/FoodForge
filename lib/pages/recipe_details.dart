@@ -12,8 +12,12 @@ class RecipeDetailsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(recipe.name),
-        backgroundColor: AppColor.intensepink,
+        title: Text(recipe.name, style: GoogleFonts.montserratAlternates(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              )),
+        backgroundColor: AppColor.mediumpink,
       ),
       body: SingleChildScrollView(
         child: Column(
